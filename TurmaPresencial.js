@@ -1,24 +1,21 @@
-const Turma = require("./Turma");
+const createTurma = require("./Turma");
 
-class TurmaPresencial extends Turma {
-  #frequencia;
+function createTurmaPresencial(codigo, nota, frequencia) {
+  const turma = createTurma(codigo, nota);
+  let _frequencia = frequencia;
 
-  constructor(codigo, nota, frequencia) {
-    super(codigo, nota);
-    this.#frequencia = frequencia;
+  return {
+    ...turma,
+    get frequencia() {
+      return _frequencia;
+    },
+    set frequencia(value) {
+      _frequencia = value;
+    },
+    aprovado() {
+      return turma.aprovado() && _frequencia >= 75;
+    },
   };
-
-  get frequencia() {
-    return this.#frequencia;
-  }
-
-  set frequencia(frequencia) {
-    this.#frequencia = frequencia;
-  }
-
-  aprovado() {
-    return super.aprovado() && this.#frequencia >= 75;
-  }
 };
 
-module.exports = TurmaPresencial;
+module.exports = createTurmaPresencial;

@@ -1,31 +1,24 @@
-class Turma {
-    #codigo;
-    #nota;
+function createTurma(codigo, nota) {
+  let _codigo = codigo;
+  let _nota = nota;
 
-  constructor(codigo, nota) {
-    this.#codigo = codigo;
-    this.#nota = nota;  
-  };
-
-  get codigo() {
-    return this.#codigo;
-  };
-
-  set codigo(codigo) {
-    this.#codigo = codigo;
-  };
-
-  get nota() {
-    return this.#nota;
-  };
-
-  set nota(nota) {
-    this.#nota = nota;
-  };
-
-  aprovado() {
-    return this.#nota >= 6;
+  return {
+    get codigo() {
+      return _codigo;
+    },
+    set codigo(value) {
+      _codigo = value;
+    },
+    get nota() {
+      return _nota;
+    },
+    set nota(value) {
+      _nota = value;
+    },
+    aprovado() {
+      return _nota >= 6;
+    },
   };
 };
 
-module.exports = Turma;
+module.exports = createTurma;

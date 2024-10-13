@@ -1,10 +1,10 @@
-class Aluno {
-  constructor(nome, login, ra, turma) {
-    this.nome = nome;
-    this.login = login;
-    this.ra = ra;
-    this.turma = turma;
+function createAluno(nome, login, ra, turma) {
+  return {
+    nome,
+    login,
+    ra,
+    turma,
   };
 };
 
-module.exports = Aluno;
+module.exports = createAluno;
